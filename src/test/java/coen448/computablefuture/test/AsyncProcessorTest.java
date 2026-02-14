@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.concurrent.*;
 import org.junit.jupiter.api.RepeatedTest;
-
+// Unit tests validating fail-fast, fail-partial, and fail-soft
+// semantics in concurrent microservice execution.
 public class AsyncProcessorTest {
         @Test
         void testFailFast_policy_propagatesException() {
