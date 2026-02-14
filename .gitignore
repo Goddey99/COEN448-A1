@@ -1,0 +1,9 @@
+# Exclude Maven build directory
+/target/
+
+# Exclude IDE files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
