@@ -29,7 +29,9 @@ public class AsyncProcessor {
             .thenApply(v -> completionOrder);
     }
 
-    // Fail-Fast (Atomic Policy)
+     // Fail-Fast Policy:
+    // If any service invocation fails, the entire computation completes exceptionally
+    // and no aggregate result is returned.
     public CompletableFuture<String> processAsyncFailFast(
             List<Microservice> services,
             List<String> messages) {
@@ -45,7 +47,8 @@ public class AsyncProcessor {
                 .collect(Collectors.joining(", ")));
     }
 
-    // Fail-Partial (Best-Effort Policy)
+     // Fail-Partial Policy:
+    // Successful services return results; failed services are ignored (best-effort).
     public CompletableFuture<List<String>> processAsyncFailPartial(
             List<Microservice> services,
             List<String> messages) {
@@ -63,7 +66,8 @@ public class AsyncProcessor {
                 .collect(Collectors.toList()));
     }
 
-    // Fail-Soft (Fallback Policy)
+   // Fail-Soft Policy:
+    // Failed services are replaced with a fallback value so the computation always completes.
     public CompletableFuture<String> processAsyncFailSoft(
             List<Microservice> services,
             List<String> messages,
